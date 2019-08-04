@@ -1,0 +1,44 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "myDB";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+$sql1= mysqli_query($conn, "SELECT * FROM lati ORDER BY Date DESC LIMIT 1");
+
+$print=mysqli_fetch_row($sql1);
+
+    echo $print[0];
+    echo"\n";
+    echo $print[1];
+    echo"\n";
+    echo $print[2];
+    echo"\n";
+        echo"\t";
+
+echo json_encode($print);
+
+    
+    
+
+
+ //$sql = "SELECT Latitude,Longitude,Date FROM lati";
+//$result = $conn->query($sql);
+
+//if ($result->num_rows > 0) {
+    // output data of each row
+  //  while($row = $result->fetch_assoc()) {
+    //    echo "Latitiude: " . $row["Latitude"]. "Longitude: " . $row["Longitude"]. "Date: " . $row["Date"]. "<br>";
+//    }
+//} else {
+//    echo "0 results";
+//}
+//$conn->close();
+?>
